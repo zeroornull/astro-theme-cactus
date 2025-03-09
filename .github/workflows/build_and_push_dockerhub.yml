@@ -1,4 +1,4 @@
-name: Build and Push fuwari-nginx Image
+name: Build and Push cactus-nginx Image
 
 on:
   push:
@@ -45,9 +45,9 @@ jobs:
           push: true
           platforms: ${{ inputs.platforms || env.PLATFORMS || 'linux/amd64' }}
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/fuwari-nginx:${{ env.TIMESTAMP }}
-            ${{ secrets.DOCKER_USERNAME }}/fuwari-nginx:latest
-            ${{ inputs.custom_tag && format('{0}/fuwari-nginx:{1}', secrets.DOCKER_USERNAME, inputs.custom_tag) || '' }}
+            ${{ secrets.DOCKER_USERNAME }}/cactus-nginx:${{ env.TIMESTAMP }}
+            ${{ secrets.DOCKER_USERNAME }}/cactus-nginx:latest
+            ${{ inputs.custom_tag && format('{0}/cactus-nginx:{1}', secrets.DOCKER_USERNAME, inputs.custom_tag) || '' }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
         env:
