@@ -10,7 +10,7 @@ RUN npm install -g pnpm@latest --no-cache && \
 COPY package.json pnpm-lock.yaml* ./
 
 # 安装依赖，允许缺少 pnpm-lock.yaml
-RUN pnpm install --prefer-offline --no-audit || pnpm install --no-audit
+RUN pnpm install
 
 # 复制源代码并构建
 COPY . .
