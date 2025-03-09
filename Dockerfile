@@ -18,6 +18,7 @@ RUN pnpm build && pnpm postbuild
 
 # 运行时阶段
 FROM nginx:alpine-slim AS runtime
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+#修改目标路径
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf 
 COPY --from=build --chown=nginx:nginx /app/dist /usr/share/nginx/html
 EXPOSE 80
