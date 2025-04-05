@@ -21,6 +21,14 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 ---
 
 <PageLayout meta={{ title: "Home" }}>
+				<!-- 添加 iframe 居左 -->
+				<div class="my-4 sm:my-0" style="float: left; margin-right: 20px;">
+					<iframe
+					frameborder="0"
+					src="https://support.nodeget.com/page/promotion?id=163"
+					style="border-radius:8px; height: 270px; transform: scale(1.0); transform-origin: top left;"
+					></iframe>
+				</div>
 	<section>
 		<h1 class="title mb-6">Hello World!</h1>
 		<h1 class="title mb-6">你好呀！</h1>
@@ -31,7 +39,9 @@ const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
 			你好呀，感谢你来看我。
 		</p>
 		<SocialList />
+
 	</section>
+
 	<section class="mt-16">
 		<h2 class="title text-accent mb-6 text-xl"><a href="/posts/">Posts</a></h2>
 		<ul class="space-y-4" role="list">
