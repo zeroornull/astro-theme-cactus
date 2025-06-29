@@ -18,7 +18,12 @@ RUN pnpm build && pnpm postbuild
 
 # 运行时阶段
 FROM nginx:alpine-slim AS runtime
-#修改目标路径
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf 
+
+# 【错误】删除这一行
+# COPY ./nginx/nginx.conf /etc/nginx/nginx.conf 
+
+# 【正确】添加这一行，将我们的 server 配置覆盖掉默认的 default.conf
+COPY ./nginx/my-app.conf /etc/nginx/conf.d/default.conf
+
 COPY --from=build --chown=nginx:nginx /app/dist /usr/share/nginx/html
 EXPOSE 80
