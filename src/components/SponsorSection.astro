@@ -2,91 +2,93 @@
 // 在这里定义您的赞助商列表
 // 每个赞助商可以包含图片链接 (logo), 名称 (name), 描述 (description), 以及跳转链接 (url)
 const sponsors = [
-  {
-    logo: "https://netjett.com//img/logo/logo (6).png",
-    name: "netjett",
-    description: "Netjail | 拘留版",
-    url: "https://netjett.com/aff.php?aff=174",
-  },
-  // 您可以在这里添加更多的赞助商
+	{
+		logo: "https://netjett.com//img/logo/logo (6).png",
+		name: "netjett",
+		description: "netjett",
+		url: "https://netjett.com/aff.php?aff=174",
+	},
+	// 您可以在这里添加更多的赞助商
 ];
 ---
 
 <style>
-  .sponsor-card {
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem; /* 8px */
-    padding: 1.5rem; /* 24px */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  }
+	.sponsor-card {
+		background-color: var(--color-bg);
+		border: 1px solid var(--color-border);
+		border-radius: 0.5rem; /* 8px */
+		padding: 1.5rem; /* 24px */
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		transition:
+			transform 0.2s ease-in-out,
+			box-shadow 0.2s ease-in-out;
+	}
 
-  .sponsor-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
+	.sponsor-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
 
-  .sponsor-logo {
-    width: 6rem; /* 96px */
-    height: 6rem; /* 96px */
-    object-fit: contain;
-    margin-bottom: 1rem; /* 16px */
-  }
+	.sponsor-logo {
+		width: 6rem; /* 96px */
+		height: 6rem; /* 96px */
+		object-fit: contain;
+		margin-bottom: 1rem; /* 16px */
+	}
 
-  .sponsor-name {
-    font-size: 1.125rem; /* 18px */
-    font-weight: 600;
-    color: var(--color-text);
-  }
+	.sponsor-name {
+		font-size: 1.125rem; /* 18px */
+		font-weight: 600;
+		color: var(--color-text);
+	}
 
-  .sponsor-description {
-    color: var(--color-text-offset);
-    margin-top: 0.5rem; /* 8px */
-    flex-grow: 1;
-  }
+	.sponsor-description {
+		color: var(--color-text-offset);
+		margin-top: 0.5rem; /* 8px */
+		flex-grow: 1;
+	}
 
-  .sponsor-button {
-    margin-top: 1.5rem; /* 24px */
-    padding: 0.5rem 1rem;
-    background-color: var(--color-accent);
-    color: white;
-    border-radius: 9999px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.2s;
-  }
+	.sponsor-button {
+		margin-top: 1.5rem; /* 24px */
+		padding: 0.5rem 1rem;
+		background-color: var(--color-accent);
+		color: white;
+		border-radius: 9999px;
+		text-decoration: none;
+		font-weight: 500;
+		transition: background-color 0.2s;
+	}
 
-  .sponsor-button:hover {
-    background-color: var(--color-accent-dark); /* 您可能需要在全局CSS中定义这个变量 */
-  }
+	.sponsor-button:hover {
+		background-color: var(--color-accent-dark); /* 您可能需要在全局CSS中定义这个变量 */
+	}
 
-  .sponsor-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem; /* 16px */
-  }
+	.sponsor-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 1rem; /* 16px */
+	}
 </style>
 
 <section class="mt-16">
-  <h2 class="title text-accent mb-6 text-xl">
-    <a href="/sponsors">Sponsors & Friends</a>
-  </h2>
-  <div class="sponsor-grid">
-    {
-      sponsors.map((sponsor) => (
-        <div class="sponsor-card">
-          <img src={sponsor.logo} alt={`${sponsor.name} Logo`} class="sponsor-logo" />
-          <h3 class="sponsor-name">{sponsor.name}</h3>
-          <p class="sponsor-description">{sponsor.description}</p>
-          <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="sponsor-button">
-            前往
-          </a>
-        </div>
-      ))
-    }
-  </div>
+	<h2 class="title text-accent mb-6 text-xl">
+		<a href="/sponsors">Sponsors & Friends</a>
+	</h2>
+	<div class="sponsor-grid">
+		{
+			sponsors.map((sponsor) => (
+				<div class="sponsor-card">
+					<img src={sponsor.logo} alt={`${sponsor.name} Logo`} class="sponsor-logo" />
+					<h3 class="sponsor-name">{sponsor.name}</h3>
+					<p class="sponsor-description">{sponsor.description}</p>
+					<a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="sponsor-button">
+						前往
+					</a>
+				</div>
+			))
+		}
+	</div>
 </section>
