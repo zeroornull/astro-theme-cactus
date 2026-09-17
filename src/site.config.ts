@@ -27,7 +27,6 @@ import type { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
 	author: "Pax", // 可以改为中文名如 "威廉姆斯·克里斯"
 	date: {
-		locale: "zh-CN", // 保持中文（中国）
 		options: {
 			year: "numeric",
 			month: "long", // 完整月份名称
@@ -37,6 +36,7 @@ export const siteConfig: SiteConfig = {
 	description: "Pax's Blog",
 	lang: "zh-CN",
 	ogLocale: "zh_CN",
+	showLogo: true,
 	title: "Pax's Blog",
 	url: "https://blog.tuotuo.de/",
 };

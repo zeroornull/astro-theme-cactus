@@ -7,10 +7,10 @@ RUN npm install -g pnpm@latest --no-cache && \
     pnpm --version
 
 # 复制依赖文件
-COPY package.json pnpm-lock.yaml* ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 # 安装依赖，允许缺少 pnpm-lock.yaml
-RUN pnpm install
+RUN pnpm install --frozen-lockfile
 
 # 复制源代码并构建
 COPY . .
