@@ -1,0 +1,17 @@
+**/node_modules
+dist
+.output
+.astro
+.cache
+.git
+.github
+.omx
+.vscode
+.zed
+.env
+.env.*
+!.example.env
+*.pem
+*.key
+*.log
+.DS_Store

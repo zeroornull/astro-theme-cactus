@@ -20,8 +20,6 @@ import {
 import { expressiveCodeOptions, siteConfig } from "./src/site.config";
 
 // https://astro.build/config
-// @ts-ignore
-// @ts-ignore
 export default defineConfig({
 	site: siteConfig.url,
 	image: {
