@@ -71,3 +71,26 @@ test("fork configuration contains no blanket suppression or obsolete config copy
 	assert.doesNotMatch(read("src/site.config.ts"), /\/\/ export const siteConfig/);
 	assert.doesNotMatch(read("Dockerfile"), /【错误】|【正确】/);
 });
+
+test("CI and image publication use action majors verified to support Node 24", () => {
+	// These majors declare runs.using: node24 in their upstream action.yml.
+	const expectedMajors = new Map([
+		["actions/checkout", "v6"],
+		["actions/setup-node", "v6"],
+		["pnpm/action-setup", "v5"],
+		["docker/login-action", "v4"],
+		["docker/setup-qemu-action", "v4"],
+		["docker/setup-buildx-action", "v4"],
+		["docker/build-push-action", "v7"],
+	]);
+	const seen = new Set();
+	for (const file of ["ci.yml", "build_and_push_dockerhub.yml"]) {
+		const workflow = read(`.github/workflows/${file}`);
+		for (const [, action, version] of workflow.matchAll(/uses:\s*([\w-]+\/[\w-]+)@(\S+)/g)) {
+			assert.ok(expectedMajors.has(action), `verify the runtime of new action ${action}`);
+			assert.equal(version, expectedMajors.get(action), `${file}: ${action}`);
+			seen.add(action);
+		}
+	}
+	assert.equal(seen.size, expectedMajors.size);
+});
