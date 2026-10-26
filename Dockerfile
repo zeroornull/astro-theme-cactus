@@ -1,5 +1,5 @@
 # Build with the same Node major and pnpm version as CI.
-FROM node:22-bookworm-slim AS build
+FROM node:24-bookworm-slim AS build
 WORKDIR /app
 
 RUN npm install -g pnpm@10.34.5

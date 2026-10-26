@@ -39,9 +39,9 @@ test("Docker and CI share a pinned pnpm version and Node major", () => {
 	const version = docker.match(/pnpm@(\d+\.\d+\.\d+)/)?.[1];
 	assert.ok(version);
 	assert.match(ci, new RegExp(`version: ["']?${version.replaceAll(".", "\\.")}["']?\\s`));
-	assert.match(docker, /FROM node:22-bookworm-slim AS build/);
-	assert.match(ci, /node-version: 22/);
-	assert.equal(read(".nvmrc").trim(), "22");
+	assert.match(docker, /FROM node:24-bookworm-slim AS build/);
+	assert.match(ci, /node-version: 24/);
+	assert.equal(read(".nvmrc").trim(), "24");
 	assert.doesNotMatch(docker, /pnpm@latest|node:lts/);
 	assert.match(docker, /pnpm install --frozen-lockfile/);
 	assert.doesNotMatch(docker, /pnpm build && pnpm postbuild/);
