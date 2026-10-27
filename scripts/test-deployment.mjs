@@ -23,6 +23,7 @@ test("Docker excludes local state and secrets but retains the environment exampl
 		"dist",
 		".astro",
 		".git",
+		".omc",
 		".omx",
 		".env",
 		".env.*",

@@ -5,6 +5,7 @@ dist
 .cache
 .git
 .github
+.omc
 .omx
 .vscode
 .zed
